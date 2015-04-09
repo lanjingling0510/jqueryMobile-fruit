@@ -50,10 +50,6 @@
             padding-top: 8px;
             margin-top: -35px;
         }
-        .num img {
-            vertical-align: middle;
-            padding: 0 3px;
-        }
         .fruit-deta-imgprec{
             position: relative;
             background: #fff;
@@ -95,11 +91,61 @@
             background: #fff;
             display: inline-block;
         }
+        /*sideBar*/
+        .sideBar{
+            position:fixed;
+            left:0;
+            top:49px;
+            width:20%;
+            background: rgb(230, 230, 230);
+            z-index:1001;
+            bottom:52px;
+            font-size:14px;
+
+        }
+        .sideBar li:not(:first-child){
+            border-bottom: 1px solid #ccc;
+            border-right:1px solid #ccc;
+            line-height:43.5px;
+            height:43.5px;
+            position:relative;
+        }
+        .sideBar li.color-red:after{
+            content: "4";
+            position: absolute;
+            text-align: center;
+            width: 16px;
+            height: 16px;
+            color: #fff;
+            border-radius: 9px;
+            background: red;
+            line-height: 19px;
+            font-family: sans-serif;
+            right: 3px;
+            top: 2px;
+        }
+        .sideBar li:first-child{
+            line-height:29px;
+            background: rgb(211, 211, 212);
+        }
     </style>
+    <!--sideBar-->
+    <div class='sideBar text-ct'>
+        <ul>
+            <li><span>分类</span></li>
+            <li class="color-red"><span>今日特惠</span></li>
+            <li><span>进口水果</span></li>
+            <li><span>国产水果</span></li>
+            <li><span>鲜果切</span></li>
+            <li><span>干货</span></li>
+            <li><span>零食</span></li>
+            <li><span>果汁</span></li>
+        </ul>
+    </div>
     <!--cartBar-->
     <div id="cart-bar-store"  class="cartBar">
         <span class="cart-count">3</span>
-        <img class="cart-btn" src="images/arrow-u.png" width="13" alt="" style="margin-left: 14px;"/>
+        <img class="cart-btn" src="images/arrow-u.png" width="13" alt=""/>
         <img style="margin-top: -9px" src="images/cart2.png" width="33" alt=""/>
         <span class="price">￥300.00</span>
         <a href="cart.html" data-transition="slidefade" class="btn fr">去结算</a>
@@ -182,50 +228,19 @@
                                                      style="margin-top: 9px;width:2em;height:2em;"
                                                      data-corners="false" data-icon="fmenu"></a>
         </div>
-        <div class="fl text-ct" style="width:62%"><input id="search" type="text" placeholder="搜索水果"/></div>
-        <div class="fl text-ct" style="width:23%"><a style="padding: 7px 13px;font-family:'黑体';font-size: 16px;" data-role="button">搜索</a></div>
+        <div class="store-store-name fl font-s20" style="width:62%;line-height:49px"></div>
 
         <!--部分二-->
+        <!--部分二-->
         <p class="clearfix">
-            <a href="myNav.html" style="display:block;background: #e6e6e6;line-height:25px;font-size:12px;color:#000;height:25px;padding:2px 11px">
-                <img style="vertical-align: middle;" src="images/marker.png"  height="20" alt=""/>
-                <span style="margin-left:5px">武汉大学工商部大学生创新创业实践中心</span>
-                <span style="color:#000" class="fr">修改></span>
+            <a href="myNav.html" class="text-ct" style="display:block;background: #e6e6e6;line-height:25px;font-size:14px;color:#6fba2c;height:25px;padding:2px 11px">
+                1份鲜果切可选择<span class="color-red">3</span>个水果
             </a>
-
         </p>
-        <!--部分三-->
-        <div class="nav1 font-s14 text-ct">
-            <div class="nav1-col1 fl">
-                <p>综合排序 <img src="images/arrow-d.png" width="10"></p>
-                <ul class="text-lt">
-                    <li>综合排序</li>
-                    <li>价格从低到高</li>
-                    <li>价格从高到低</li>
-                    <li>信用排序</li>
-                </ul>
-
-            </div>
-            <div class="nav1-col2 fl" style="width:28%;border-right:1px solid #E6E6E6">销量优先</div>
-            <div class="nav1-col3  fl">
-                <p> 产地 <img src="images/arrow-d.png" width="10"></p>
-                <ul class="text-lt">
-                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
-                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
-                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
-                    <hr style="margin: 0;border: 1px #dddddd dashed;"/>
-                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
-                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
-                </ul>
-            </div>
-            <div style="width:14%" class="fl">
-                <img id="menu3" src="images/menu2.png" alt="" width="14"/>
-            </div>
-        </div>
     </div>
     <!--content-->
     <div id="store-list2" class="content-mg-bt">
-        <ul class="home-list clearfix">
+        <ul class="fruit-list clearfix" style="margin-left:20%;">
         </ul>
     </div>
     <!--footer-->
@@ -254,19 +269,6 @@
     <script src="js/cyt-slider.js"></script>
     <script>
         $(function () {
-            //转换列表大小事件
-            $("#menu3").mousedown(function () {
-                if (!$(this).data('status')) {
-                    $("#store-list2 .home-list li").removeClass('width-small').addClass('width-big');
-                    $(this).data('status', true)
-                    $(this).attr('src', 'images/menu3.png');
-
-                } else {
-                    $("#store-list2 .home-list li").removeClass('width-big').addClass('width-small');
-                    $(this).data('status', false)
-                    $(this).attr('src', 'images/menu2.png');
-                }
-            })
             //点击关闭close按钮事件
             $(".home-close-btn").mousedown(function(){
                 $(".home-fruit-wrap").fadeOut(300);

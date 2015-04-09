@@ -15,21 +15,6 @@
 <body bgcolor=" #eeeeee" style="display:none">
 <!--page1-->
 <div data-role="page" id="myInfo">
-    <style>
-        .myInfo-history-wenzi{
-            font-weight: 600;
-            padding:0.7em 1em;
-            border-bottom: 1px solid #ccc;
-            font-size:14px;
-            font-family: "黑体";
-
-        }
-        .myInfo-history-wenzi.active{
-            background: rgb(118, 186, 44) url("images/myinfo-1.png") no-repeat 92% center;
-            color: #fff;
-            background-size: 20px 20px;
-        }
-    </style>
     <!--header-->
     <div class="header" data-role="header" data-position="fixed"
          style="background: url('images/center-bg.png') repeat-x 0 -142px;
@@ -38,24 +23,24 @@ background-size: 12px 192px;">
         <h1 class="font-normal font-s16 font-fy-yahei">地址管理</h1>
     </div>
     <!--content-->
-    <h4 style="background:rgb(159,160,160);color:#fff;margin-bottom: 0;" class="text-title text-ct">修改资料</h4>
+    <h4 style="background: rgba(159,160,160,0.5);color:#fff;margin-bottom: 0;" class="text-title text-ct">修改资料</h4>
     <div id="center-list" data-role="content">
 
         <form action="">
             <div class="fl text-rt" style="width:100%">
-                <div class="fl" style="width:20%"><label style="margin-top: 11px;" for="name">姓名：</label></div><div class="fr" style="width:80%;"><input name="name" id="name" type="text"/></div>
+                <div class="fl" style="width:20%"><label for="name">姓名：</label></div><div class="fr" style="width:80%;"><input name="name" id="name" type="text"/></div>
             </div>
             <div class="fl text-rt" style="width:100%">
-                <div class="fl" style="width:20%"><label style="margin-top: 11px;" for="address">地址：</label></div><div class="fr" style="width:80%;"><input name="address" id="address" type="text"/></div>
+                <div class="fl" style="width:20%"><label for="address">地址：</label></div><div class="fr" style="width:80%;"><input name="address" id="address" type="text"/></div>
             </div>
             <div class="fl text-rt" style="width:100%">
-                <div class="fl" style="width:20%"><label style="margin-top: 11px;" for="phone">号码：</label></div><div class="fr" style="width:80%;"><input name="phone" id="phone" type="text"/></div>
+                <div class="fl" style="width:20%"><label for="phone">号码：</label></div><div class="fr" style="width:80%;"><input name="phone" id="phone" type="text"/></div>
             </div>
             <a class="btn-big">保存信息</a>
         </form>
     </div>
     <!---->
-    <h4 style="background:rgb(159,160,160);color:#fff;margin: 0;" class="text-title text-ct">历史记录</h4>
+    <h4 style="background: rgba(159,160,160,0.5);color:#fff;margin: 0;" class="text-title text-ct">历史记录</h4>
     <div  class="myInfo-history-wenzi active">
         <p>柳瑶  155279311996</p>
         <p>武汉大学工学部创业中心</p>

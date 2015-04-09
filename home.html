@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/home.css"/>
     <script src="js/jquery-1.11.0.min.js"></script>
 </head>
-<body bgcolor=" #eeeeee" style="display:none">
+<body style="display:none">
 <!--page1-->
 <div data-role="page" id="Home">
     <link rel="stylesheet" href="css/cyt-slider.css"/>
@@ -40,10 +40,6 @@
         .fruit-data-text .num {
             padding-top: 8px;
             margin-top: -35px;
-        }
-        .num img {
-            vertical-align: middle;
-            padding: 0 3px;
         }
         .fruit-deta-imgprec{
             position: relative;
@@ -91,7 +87,7 @@
     <!--cartBar-->
     <div id="cart-bar-home"  class="cartBar">
         <span class="cart-count">3</span>
-        <img class="cart-btn" src="images/arrow-u.png" width="13" alt="" style="margin-left: 14px;"/>
+        <img class="cart-btn" src="images/arrow-u.png" width="13" alt=""/>
         <img style="margin-top: -9px" src="images/cart2.png" width="33" alt=""/>
         <span class="price">￥300.00</span>
         <a href="cart.html" data-transition="slidefade" class="btn fr">去结算</a>
@@ -213,16 +209,6 @@
                 </ul>
             </div>
         </div>
-
-        <!--部分四-->
-        <div class="nav2 ui-grid-b">
-            <div class="ui-block-a text-rt"><a href="" data-role="button" style="width:52%;background: rgb(242,179,26);margin-right:0">分类</a>
-            </div>
-            <div class="ui-block-b text-ct"><a href="" data-role="button" style="width:52%;background: rgb(174,205,23)">价格</a>
-            </div>
-            <div class="ui-block-c text-lt"><a href="" data-role="button" style="width:52%;background: rgb(56,193,212);margin-left:0">店铺</a>
-            </div>
-        </div>
     </div>
     <!--content-->
     <div id="fruit-list" class="content-mg-bt">
@@ -256,19 +242,6 @@
     <script src="js/cyt-slider.js"></script>
     <script>
         $(function () {
-            //转换列表大小事件
-            $("#menu2").mousedown(function () {
-                if (!$(this).data('status')) {
-                    $("#fruit-list .home-list li").removeClass('width-small').addClass('width-big');
-                    $(this).data('status', true)
-                    $(this).attr('src', 'images/menu3.png');
-
-                } else {
-                    $("#fruit-list .home-list li").removeClass('width-big').addClass('width-small');
-                    $(this).data('status', false)
-                    $(this).attr('src', 'images/menu2.png');
-                }
-            })
             //点击关闭close按钮事件
             $(".home-close-btn").mousedown(function(){
                 $(".home-fruit-wrap").fadeOut(300);

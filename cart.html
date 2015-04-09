@@ -17,10 +17,20 @@
     <style>
         /*todo style*/
         .cart-form-wrap {
-            background: rgb(244, 244, 244);
             padding: 1em;
         }
-
+        .cart-form-section1{
+            background: rgb(236, 237, 241);
+            padding:8px 0;
+        }
+        .cart-form-section1>li span{
+            float:left;
+            margin-left:7px;
+            height:30px;
+        }
+        .cart-form-section1>li span:first-child{
+            line-height: 27px;
+        }
         .cart-input-icon {
             display: inline-block;
             padding: 4px 9px;
@@ -53,80 +63,77 @@
 
     <!--表单-->
     <!--todo form-->
-    <div class="cart-form-wrap clearfix font-fy-heiti">
-        <form action="">
-            <div class="fl text-lt ui-input-text" style="width:100%">
-                <div class="fl" style="width:15%"></div>
-                <div class="fr" style="width:85%">
+    <div class="cart-form-wrap clearfix">
+             <ul class="cart-form-section1">
+                 <li class="clearfix">
+                     <span>小费：</span>
+                     <span><cite class="cart-input-icon active">0元</cite></span>
+                     <span><cite class="cart-input-icon unactive">1元</cite></span>
+                     <span><cite class="cart-input-icon unactive">3元</cite></span>
+                     <span><cite class="cart-input-icon unactive">5元</cite></span>
+                 </li>
+                 <li class="clearfix">
+                     <span>总价：</span>
+                     <span><cite class="color-red font-bold" id="price-view">310.00元</cite></span>
+                 </li>
+                 <li class="clearfix">
+                     <span>配送时间：</span>
 
-                </div>
-            </div>
-            <div class="fl text-lt" style="width:100%;font-size:20px">
-                <div class="fl" style="width:18%"></div>
+                 </li>
+                 <li class="clearfix">
+                     <span >支付方式：</span>
+                     <span><cite class="cart-input-icon active">货到付款</cite></span>
+                 </li>
+             </ul>
 
-            </div>
 
-
+            <form action="">
             <table border="0" style="border-collapse:collapse;width:100%;">
                 <tr>
-                    <td><label style="margin-top: 3px;" for="name">小费：</label></td>
+                    <td style="width:50px">
+                        <label for="name">姓名：</label>
+                    </td>
                     <td>
-                        <span class="cart-input-icon active">0元</span>
-                        <span class="cart-input-icon unactive">1元</span>
-                        <span class="cart-input-icon unactive">3元</span>
-                        <span class="cart-input-icon unactive">5元</span></td>
-                </tr>
-                <tr>
-                    <td><label style="font-size:18px" for="name">总价：</label></td>
-                    <td>
-                        <div class="color-red font-bold" id="price-view">310.00元</div>
+                        <input name="name" id="name" type="text">
                     </td>
                 </tr>
                 <tr>
-                    <td><label style="margin-top: 3px;" for="name">配送时间：</label></td>
-                    <td>
-                        <span class="font-s12" id="delivery-date-text"></span>
-                        <span id="delivery-date-wrap" style="display:inline-block;width:22px;height:23px;overflow:hidden;position:relative;vertical-align: middle;line-height: 0;">
-                            <input style="position: absolute;left: -45px;top: -4px;z-index: 1;opacity: 0;width: 68px;" type="date" name="delivery-date-input" id="delivery-date-input"/>
-                            <img src="images/calendar.png" width="22" alt=""/></span>
-                        <span class="cart-input-icon active">及时配送</span></td>
-                </tr>
-                <tr style="height:43px">
-                    <td><label style="margin-top: 3px;" for="name">支付方式：</label></td>
-                    <td><span class="cart-input-icon active">货到付款</span></td>
-                </tr>
-                <tr>
-                    <td style="width:71px">
-                        <label for="name">配送姓名：</label>
-                    </td>
-                    <td>
-                        <input style="margin-top: 4px;" name="name" id="name" type="text" placeholder="张倩">
-                    </td>
-                </tr>
-                <tr>
-                    <td><label style="margin-top: 4px;" for="name">配送地址：</label></td>
-                    <td><input name="address" id="address" type="text" placeholder="地球村"></td>
+                    <td><label for="name">地址：</label></td>
+                    <td><input name="address" id="address" type="text"></td>
                 </tr>
 
                 <tr>
-                    <td><label style="margin-top: 11px;" for="name">手机号码：</label></td>
+                    <td><label for="name">号码：</label></td>
                     <td>
-                        <input name="phone" id="phone" type="text" placeholder="15527941996">
+                        <input name="phone" id="phone" type="text">
                     </td>
                 </tr>
-                <tr>
-                    <td><label style="margin-top: 11px;" for="name">订单备注：</label></td>
-                    <td><input name="beizhu" id="beizhu" type="text"></td>
-                </tr>
+                <tr><td colspan="2"><button class="btn-big" style="background: red;">提交订单</button></td></tr>
             </table>
-
-
-            <div class="fl text-ct" style="width:100%">
-                <button class="btn-big" style="background: red;">提交订单</button>
-            </div>
-
-
         </form>
+
+        <!--地址-->
+        <!--<div  class="myInfo-history-wenzi" style="overflow:auto">-->
+            <!--<p class="fl">常用地址:&nbsp;&nbsp;</p>-->
+            <!--<div style="overflow:auto">-->
+                <!--<p>柳瑶  155279311996</p>-->
+                <!--<p>武汉大学工学部创业中心</p>-->
+            <!--</div>-->
+
+        <!--</div>-->
+        <!--<h4 style="background: rgba(159,160,160,0.5);color:#fff;margin: 0;" class="text-title text-ct"><a href="myNav.html">添加地址</a></h4>-->
+        <!--<div  class="myInfo-history-wenzi active">-->
+            <!--<p>柳瑶  155279311996</p>-->
+            <!--<p>武汉大学工学部创业中心</p>-->
+        <!--</div>-->
+        <!--<div  class="myInfo-history-wenzi">-->
+            <!--<p>柳瑶  155279311996</p>-->
+            <!--<p>武汉大学工学部创业中心</p>-->
+        <!--</div>-->
+        <!--<div  class="myInfo-history-wenzi">-->
+            <!--<p>柳瑶  155279311996</p>-->
+            <!--<p>武汉大学工学部创业中心</p>-->
+        <!--</div>-->
     </div>
 
 

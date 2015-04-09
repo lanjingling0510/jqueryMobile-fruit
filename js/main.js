@@ -16,18 +16,18 @@
             {id: 17, price: 50, num: 1, name: "现货8斤 不知火丑柑现货新鲜水谷臭橘子 臭橘子桔子", image: "images/fruit-1.png",store:"光谷鲁巷杨家湾店"}
         ],
         fruitQieList:[
-            {id: 5, price: 100, num: 0, name: "火龙果", image: "images/qie1.png",store:"武大店"},
-            {id: 6, price: 100, num: 0, name: "奇异果", image: "images/qie2.png",store:"武大店"},
-            {id: 7, price: 100, num: 0, name: "圣女果", image: "images/qie3.png",store:"武大店"},
-            {id: 8, price: 100, num: 0, name: "黄金梨", image: "images/qie4.png",store:"武大店"},
-            {id: 9, price: 100, num: 0, name: "火龙果", image: "images/qie1.png",store:"街道口店"},
-            {id: 10, price: 100, num: 0, name: "奇异果", image: "images/qie2.png",store:"街道口店"},
-            {id: 11, price: 100, num: 0, name: "圣女果", image: "images/qie3.png",store:"街道口店"},
-            {id: 12, price: 100, num: 0, name: "黄金梨", image: "images/qie4.png",store:"街道口店"},
-            {id: 13, price: 100, num: 0, name: "火龙果", image: "images/qie1.png",store:"光谷鲁巷杨家湾店"},
-            {id: 14, price: 100, num: 0, name: "奇异果", image: "images/qie2.png",store:"光谷鲁巷杨家湾店"},
-            {id:15, price: 100, num: 0, name: "圣女果", image: "images/qie3.png",store:"光谷鲁巷杨家湾店"},
-            {id:16, price: 100, num: 0, name: "黄金梨", image: "images/qie4.png",store:"光谷鲁巷杨家湾店"}
+            {id: 5, price: 100, num: 0, name: "火龙果", image: "images/qie1.png",store:"武大店",desc:"香味浓郁 核薄肉多"},
+            {id: 6, price: 100, num: 0, name: "奇异果", image: "images/qie2.png",store:"武大店",desc:"颜美红嫩 健康之选"},
+            {id: 7, price: 100, num: 0, name: "圣女果", image: "images/qie3.png",store:"武大店",desc:"天然野生 清甜多汁"},
+            {id: 8, price: 100, num: 0, name: "黄金梨", image: "images/qie4.png",store:"武大店",desc:"香味浓郁 汁多微甜"},
+            {id: 9, price: 100, num: 0, name: "火龙果", image: "images/qie1.png",store:"街道口店",desc:"香味浓郁 核薄肉多"},
+            {id: 10, price: 100, num: 0, name: "奇异果", image: "images/qie2.png",store:"街道口店",desc:"颜美红嫩 健康之选"},
+            {id: 11, price: 100, num: 0, name: "圣女果", image: "images/qie3.png",store:"街道口店",desc:"天然野生 清甜多汁"},
+            {id: 12, price: 100, num: 0, name: "黄金梨", image: "images/qie4.png",store:"街道口店",desc:"香味浓郁 汁多微甜"},
+            {id: 13, price: 100, num: 0, name: "火龙果", image: "images/qie1.png",store:"光谷鲁巷杨家湾店",desc:"香味浓郁 核薄肉多"},
+            {id: 14, price: 100, num: 0, name: "奇异果", image: "images/qie2.png",store:"光谷鲁巷杨家湾店",desc:"颜美红嫩 健康之选"},
+            {id:15, price: 100, num: 0, name: "圣女果", image: "images/qie3.png",store:"光谷鲁巷杨家湾店",desc:"天然野生 清甜多汁"},
+            {id:16, price: 100, num: 0, name: "黄金梨", image: "images/qie4.png",store:"光谷鲁巷杨家湾店",desc:"香味浓郁 汁多微甜"}
         ],
         fruitQieList_now:[],
         fruitStoreList_now:[],
@@ -71,12 +71,13 @@
         function _initStore_2(){
             $("#store-list2 ul").empty();
             for(var i=0;i<GLOBAL.fruitStoreList_now.length;i++){
-                addFruitToHome(i,GLOBAL.fruitStoreList_now,$("#store-list2 ul"));
+                addFruitToStore2(i,GLOBAL.fruitStoreList_now,$("#store-list2 ul"));
             }
+            $(".store-store-name").text(GLOBAL.fruitStoreList_now[0].store);
         }
         //添加模板到首页
         function addFruitToHome(index,list,parent) {
-            var tpl = '<li data-id="'+list[index].id+'" class="width-small">\
+            var tpl = '<li data-id="'+list[index].id+'">\
              <div class="fruit-list-l">\
                  <img src="' + list[index].image + '" alt="" width="100%"/>\
              </div>\
@@ -88,54 +89,65 @@
                     <cite class="name color-red">'+list[index].store+'</cite>\
                 </span>\
                  <span class="num fr">\
-                 <img class="cart" src="images/cart3.png" width="20">\
                 <img class="reduce" src="images/reduce.png"  width="18"/>\
-                <cite class="num">' + list[index].num + '</cite>\
+                <cite>' + list[index].num + '</cite>\
                 <img class="add" src="images/add.png"  width="18"/>\
                 </span>\
                 </p>\
               </div>\
-                <span class="fruit-list-collect">\
-                <img class="store_collect_btn" src="images/collect.png" width="20" alt=""/>\
-                <img src="images/share.png" width="20" alt=""/>\
-                </span>\
-              <span class="fruit-list-icon"><img src="images/diandian.png" width="17" alt=""/></span>\
             </li>';
             parent.append(tpl);
         }
+
+        function addFruitToStore2(index,list,parent){
+            var tpl = '<li data-id="'+list[index].id+'">\
+             <div class="fruit-list-l">\
+                 <img src="' + list[index].image + '" alt="" width="100%"/>\
+             </div>\
+             <div  class="fruit-list-r">\
+                <p class="title text-p">' + list[index].name + '</p>\
+                <p class="text-p">\
+                <span class="price-name">\
+                    <cite class="price color-red">￥' + list[index].price + '/盒</cite>\
+                </span>\
+                 <span class="num fr" style="margin-top:0">\
+                <img class="reduce" src="images/reduce.png"  width="18"/>\
+                <cite>' + list[index].num + '</cite>\
+                <img class="add" src="images/add.png"  width="18"/>\
+                </span>\
+                </p>\
+              </div>\
+            </li>';
+            parent.append(tpl);
+        }
+
+
         //添加所有水果到鲜果切
         function _initFruitQie_2(){
-            $("#fruitQie-list-2 .home-list").empty();
+            $("#fruitQie-list-2 .fruit-list").empty();
             var tpl;
             for(var i=0;i<GLOBAL.fruitQieList_now.length;i++){
-                 tpl = '<li data-id="'+GLOBAL.fruitQieList_now[i].id+'" class="width-big">\
+                 tpl = '<li data-id="'+GLOBAL.fruitQieList_now[i].id+'">\
              <div class="fruit-list-l">\
                  <img src="' + GLOBAL.fruitQieList_now[i].image + '" alt="" width="100%"/>\
              </div>\
              <div  class="fruit-list-r">\
-                <p class="title store-list-pd font-fy-heiti font-s16">\
-                 <span class="fr">\
-                 <img class="store_collect_btn" src="images/collect.png" width="20" alt=""/>\
-                <img src="images/share.png" width="20" alt=""/>\
+                <p class="fruit-list-pd font-fy-heiti font-s14">\
+                 <span class="num fr">\
+                <img class="reduce" src="images/reduce.png"  width="18"/>\
+                <cite>' + GLOBAL.fruitQieList_now[i].num + '</cite>\
+                <img class="add" src="images/add.png"  width="18"/>\
                 </span>\
                 <span>'
                  + GLOBAL.fruitQieList_now[i].name +
-                 '</span><br/><span class="price-name color-red">'+
-                 GLOBAL.fruitQieList_now[i].store+
+                 '</span><br/><span class="price-name color-green2">'+
+                 GLOBAL.fruitQieList_now[i].desc+
                  ' </span>\
                  </p>\
-                <p class="text-p store-list-pd font-fy-heiti font-s16">\
-                 <span class="num">\
-                 <img class="cart" src="images/cart3.png" width="20">\
-                <img class="reduce" src="images/reduce.png"  width="15"/>\
-                <cite>' + GLOBAL.fruitQieList_now[i].num + '</cite>\
-                <img class="add" src="images/add.png"  width="15"/>\
-                </span>\
-                </p>\
               </div>\
-              <span class="fruit-list-icon"><img src="images/diandian.png" width="17" alt=""/></span>\
             </li>';
-                $("#fruitQie-list-2 .home-list").append(tpl);
+                $("#fruitQie-list-2 .fruit-list").append(tpl);
+                $(".fruitQie-store-name").text(GLOBAL.fruitQieList_now[0].store);
             }
         }
         // 更新水果数据层
@@ -191,7 +203,7 @@
             var id=obj.id;
             var num=obj.num;
             var name=obj.name;
-            var li = $("#fruitQie-list-2 .home-list [data-id="+id+"]");
+            var li = $("#fruitQie-list-2 .fruit-list [data-id="+id+"]");
             li.find('.num cite').text(num);
 
             //更新生成套餐Bar的视图
@@ -440,7 +452,7 @@
             }
         })
         //点击鲜果切页面水果的加减号
-        $(document).on('mousedown',"#fruitQie-list-2 .home-list li",function(event){
+        $(document).on('mousedown',"#fruitQie-list-2 .fruit-list li",function(event){
             var obj = $(event.target);
             var li = obj.closest('li');
             var id=li.data('id');

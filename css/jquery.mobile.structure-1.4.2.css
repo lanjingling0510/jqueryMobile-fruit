@@ -179,7 +179,7 @@ div.ui-mobile-viewport {
 }
 .ui-header,
 .ui-footer {
-	border-width: 1px 0;
+	border-width: 0px 0;
 	border-style: solid;
 	position: relative;
 }
@@ -401,7 +401,7 @@ button.ui-btn-icon-notext,
 .ui-mobile label,
 .ui-controlgroup-label {
 	display: block;
-	margin: 0 0 .4em;
+	margin-top:7px;
 }
 /* Accessible content hiding */
 /* ui-hide-label deprecated in 1.4. TODO: Remove in 1.5 */
@@ -2888,7 +2888,7 @@ div.ui-rangeslider label {
 }
 .ui-input-text,
 .ui-input-search {
-	margin: .5em 0;
+	margin: 5px 0 0 0;
 	border-width: 0;
 	border-style: solid;
 }

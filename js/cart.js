@@ -132,10 +132,10 @@ GLOBAL.myApp.CartMaker.Cart=function(){
             <p class="text-p">{{name}}</p>\
             <p class="text-p">\
             <span class="price color-red">￥{{price}}/盒</span>\
-            <span class="fr num2">\
-            <img src="images/reduce.png" class="reduce" width="15" alt="">\
+            <span class="fr num" style="margin-top:0">\
+            <img src="images/reduce.png" class="reduce" width="18" alt="">\
             <cite>{{num}}</cite>\
-            <img src="images/add.png" class="add" width="15" alt="">\
+            <img src="images/add.png" class="add" width="18" alt="">\
             </span>\
             </p>\
             </div>\
@@ -154,7 +154,7 @@ GLOBAL.myApp.CartMaker.Cart=function(){
         for(i in storeList){
             var storeArr=storeList[i];
             var storeName='<p style="background:rgb(111,186,44);color:#fff" class="text-title text-ct">'+i+'</p>';
-            storeName+='<ul class="home-list clearfix"></ul>';
+            storeName+='<ul class="fruit-list clearfix"></ul>';
             $("#cart-wrap-cart").append(storeName);
             for(var j=0;j<storeArr.length;j++){
                 var index=GLOBAL.allMap[storeArr[j]];
@@ -188,7 +188,7 @@ GLOBAL.myApp.CartMaker.Cart=function(){
         var data = GLOBAL.allList[index];
         var id = data.id;
         var CartLi = $("#cart-wrap-cart li[data-id='" + id + "']");
-        CartLi.find('.num2 cite').text(data.num);
+        CartLi.find('.num cite').text(data.num);
     }
     //
     this.calculateMoney=function(){

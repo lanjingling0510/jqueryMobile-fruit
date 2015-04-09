@@ -219,7 +219,7 @@ html body .ui-group-theme-a .ui-bar-inherit {
 .ui-overlay-a,
 .ui-page-theme-a,
 .ui-page-theme-a .ui-panel-wrapper {
-	background-color: #eeeeee/*{a-page-background-color}*/;  /*{a-page-border}*/;
+	background-color: #fafafa /*{a-page-background-color}*/;  /*{a-page-border}*/;
 	color: #333333 /*{a-page-color}*/;
 	text-shadow: 0 /*{a-page-shadow-x}*/ 0 /*{a-page-shadow-y}*/ 0 /*{a-page-shadow-radius}*/ #fff /*{a-page-shadow-color}*/;
 }

@@ -62,7 +62,9 @@ a{
 .font-s14{
     font-size:14px;
 }
-
+.font-s20{
+    font-size:20px;
+}
 .clearfix {
     clear: both
 }
@@ -107,7 +109,8 @@ a{
     margin-bottom:30px;
 }
 textarea.ui-input-text { min-height: 178px }
-textarea.ui-input-text#textarea-comment { min-height: 51px  }
+textarea.ui-input-text#textarea-comment { min-height: 60px;
+    background: #ffffff;border:1px solid #6fba2c}
 .ui-navbar.footer-bg {
     background-image: -webkit-linear-gradient(top, #8abe1e 0%, #31590b 100%);
 }
@@ -221,73 +224,50 @@ content-home
 */
 .home-list li {
     margin: 2%;
-    border-bottom:1px solid #ccc;
+    box-shadow:2px 2px 3px #ccc;
     background: #ffffff;
-    float: left
+    float: left;
+    width: 46%;
 }
 
-.fruit-list-cmBtn{
-    display: inline-block;
-    border: 1px solid #6fba2c;
-    color: #6fba2c;
-    padding: 4px 14px;
-    border-radius: 5px;
-    margin-right: 13px;
-}
-.home-list li.width-big .fruit-list-icon{
-    position:absolute;
-    bottom: 5px;
-    right:16px;
-}
 
-.home-list li.width-small .fruit-list-l{
+
+.home-list li .fruit-list-l{
     height: 0;
     padding: 50% 0;
     position: relative;
     overflow: hidden;
 }
-.home-list li.width-small .fruit-list-l>img{
+.home-list li .fruit-list-l>img{
     position: absolute;
     left: 0;
     top: 0;
 }
 
-.home-list li.width-small .fruit-list-icon{
-    display:none;
-}
-.home-list li.width-small .fruit-list-collect{
-    display:none;
-}
-
-.home-list li.width-small .price-name{
+.home-list li .price-name{
     width:50%;
 }
 
-.home-list li.width-small {
-    width: 46%;
-}
-
-.home-list li.width-small .title {
+.home-list li .title {
     border-bottom: 2px dashed #ccc;
 }
 
-.home-list li.width-small .name{
+.home-list li .name{
     display:inline-block;
     text-overflow:ellipsis;
     white-space:nowrap;
     overflow:hidden;
     width: 100%;
 }
-.home-list li.width-small .cart{
-    display:none;
-}
 
 .home-list .num {
     padding-top: 8px;
 }
-.home-list .num img {
-    vertical-align: middle;
-    padding: 0 3px;
+.home-list .num cite{
+    font-size:18px;
+}
+.home-list .num img{
+    vertical-align:top;
 }
 
 
@@ -298,12 +278,15 @@ content-home
 .cartBar,.cartBar2 {
     position: fixed;
     left: 0;
-    bottom: 54px;
+    bottom: 51px;
     width: 100%;
+    padding:0 1em;
     height: 42px;
-    background: rgba(211, 209, 202, 0.8);
+    background: rgba(144, 144, 144, 0.56);
     line-height: 42px;
-    z-index: 1;
+    z-index: 1002;
+    font-size:12px;
+    box-sizing:border-box;
 }
 
 .cartBar .price {
@@ -318,7 +301,7 @@ content-home
     text-align: center;
     width: 76px;
     border-radius: 8px;
-    margin-top: 12px;
+    margin-top: 10px;
     margin-right: 5px;
     font-size: 14px;
 }
@@ -411,7 +394,7 @@ content-home
 }
 .header-center-aside{
    position:absolute;
-    bottom:6px;
+    bottom:11px;
     right: 5px;
     line-height:21px;
 }
@@ -461,6 +444,52 @@ content-home
     padding:0.4em 0.8em;
 }
 
+/*
+*content-fruit
+*
+*/
+.fruit-list li{
+    border-bottom: 1px solid #dedede;
+    background: #ffffff;
+    float: left;
+    padding-top:10px;
+    width:100%;
+}
+.fruit-list .fruit-list-l{
+    float:left;
+    width:30%;
+    padding-left:2%;
+}
+.fruit-list .fruit-list-r{
+    float:right;
+    width:68%;
+}
+.fruit-list .fruit-list-pd{
+    padding: 1.5em 1.4em 0;
+    line-height:1.2;
+}
+.fruit-list .num cite{
+    font-size:18px;
+}
+.fruit-list .num {
+    margin-top:10px;
+}
+.fruit-list .num img{
+    vertical-align:top;
+}
+
+.fruit-list-cmBtn{
+    display: inline-block;
+    border: 1px solid #6fba2c;
+    color: #6fba2c;
+    padding: 4px 14px;
+    border-radius: 5px;
+    margin-right: 13px;
+}
+
+
+
+
 /*content-myinfo*/
 #name,#phone,#address,#beizhu{
     height: 25px;
@@ -471,7 +500,6 @@ content-home
 .feedback-list li{
     border-top: 1px solid #C2C5BA;
     margin:0 0.8em;
-     padding: 1em 0;
 }
 /*content-myComment*/
 .comment-wrap img{
@@ -484,4 +512,17 @@ content-home
     width: 17%;
     display: inline-block;
     margin-left: 1%;
+}
+/*content-myNav*/
+.myInfo-history-wenzi{
+    font-weight: 600;
+    padding:0.7em 1em;
+    border-bottom: 1px solid #ccc;
+    font-size:14px;
+
+}
+.myInfo-history-wenzi.active{
+    background: rgb(118, 186, 44) url("../images/myinfo-1.png") no-repeat 92% center;
+    color: #fff;
+    background-size: 20px 20px;
 }
