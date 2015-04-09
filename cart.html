@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+    <title>购物车</title>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.css">
+    <link rel="stylesheet" href="css/home.css"/>
+    <script src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body style="display:none">
+<div data-role="page" id="Cart">
+    <style>
+        /*todo style*/
+        .cart-form-wrap {
+            background: rgb(244, 244, 244);
+            padding: 1em;
+        }
+
+        .cart-input-icon {
+            display: inline-block;
+            padding: 4px 9px;
+            border-radius: 5px;
+            margin-right: -2px;
+            font-size: 12px;
+        }
+
+        .cart-input-icon.active {
+            border: 1px solid red;
+            color: red;
+            background: #fff url("images/cart-input-icon.png") no-repeat 100% 100%;
+        }
+
+        .cart-input-icon.unactive {
+            border: 1px solid #6e6c6c;
+            color: #6e6c6c;
+            background: #fff;
+
+        }
+
+        #delivery-date-wrap .ui-input-text {
+            margin: 0;
+        }
+    </style>
+    <div id="cart-wrap-cart" class="cart-list">
+
+    </div>
+
+
+    <!--表单-->
+    <!--todo form-->
+    <div class="cart-form-wrap clearfix font-fy-heiti">
+        <form action="">
+            <div class="fl text-lt ui-input-text" style="width:100%">
+                <div class="fl" style="width:15%"></div>
+                <div class="fr" style="width:85%">
+
+                </div>
+            </div>
+            <div class="fl text-lt" style="width:100%;font-size:20px">
+                <div class="fl" style="width:18%"></div>
+
+            </div>
+
+
+            <table border="0" style="border-collapse:collapse;width:100%;">
+                <tr>
+                    <td><label style="margin-top: 3px;" for="name">小费：</label></td>
+                    <td>
+                        <span class="cart-input-icon active">0元</span>
+                        <span class="cart-input-icon unactive">1元</span>
+                        <span class="cart-input-icon unactive">3元</span>
+                        <span class="cart-input-icon unactive">5元</span></td>
+                </tr>
+                <tr>
+                    <td><label style="font-size:18px" for="name">总价：</label></td>
+                    <td>
+                        <div class="color-red font-bold" id="price-view">310.00元</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label style="margin-top: 3px;" for="name">配送时间：</label></td>
+                    <td>
+                        <span class="font-s12" id="delivery-date-text"></span>
+                        <span id="delivery-date-wrap" style="display:inline-block;width:22px;height:23px;overflow:hidden;position:relative;vertical-align: middle;line-height: 0;">
+                            <input style="position: absolute;left: -45px;top: -4px;z-index: 1;opacity: 0;width: 68px;" type="date" name="delivery-date-input" id="delivery-date-input"/>
+                            <img src="images/calendar.png" width="22" alt=""/></span>
+                        <span class="cart-input-icon active">及时配送</span></td>
+                </tr>
+                <tr style="height:43px">
+                    <td><label style="margin-top: 3px;" for="name">支付方式：</label></td>
+                    <td><span class="cart-input-icon active">货到付款</span></td>
+                </tr>
+                <tr>
+                    <td style="width:71px">
+                        <label for="name">配送姓名：</label>
+                    </td>
+                    <td>
+                        <input style="margin-top: 4px;" name="name" id="name" type="text" placeholder="张倩">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label style="margin-top: 4px;" for="name">配送地址：</label></td>
+                    <td><input name="address" id="address" type="text" placeholder="地球村"></td>
+                </tr>
+
+                <tr>
+                    <td><label style="margin-top: 11px;" for="name">手机号码：</label></td>
+                    <td>
+                        <input name="phone" id="phone" type="text" placeholder="15527941996">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label style="margin-top: 11px;" for="name">订单备注：</label></td>
+                    <td><input name="beizhu" id="beizhu" type="text"></td>
+                </tr>
+            </table>
+
+
+            <div class="fl text-ct" style="width:100%">
+                <button class="btn-big" style="background: red;">提交订单</button>
+            </div>
+
+
+        </form>
+    </div>
+
+
+    <!--footer-->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" class="footer-bg">
+            <ul>
+                <li>
+                    <a href="home.html" data-transition="slidefade" data-direction="reverse" data-role="button"
+                       data-icon="fhome"
+                       data-iconpos="top">首页</a>
+                </li>
+                <li>
+                    <a href="fruitQie.html" data-transition="slidefade" data-direction="reverse" data-role="button"
+                       data-icon="ffruit" data-iconpos="top">鲜果切</a>
+                </li>
+                <li>
+                    <a href="store.html" data-transition="slidefade" data-direction="reverse" data-role="button"
+                       data-icon="fstore" data-iconpos="top">店铺</a>
+                </li>
+                <li>
+                    <a href="" class="ui-btn-active ui-state-persist" data-role="button" data-icon="fcart"
+                       data-iconpos="top">购物车</a>
+                </li>
+                <li>
+                    <a href="center.html" data-transition="slidefade" data-role="button" data-icon="fmy"
+                       data-iconpos="top">用户中心</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--todo script-->
+    <script>
+        $('.cart-input-icon').on('click', function () {
+            var obj = $(this);
+            obj.siblings(".active").removeClass('active').addClass('unactive');
+            obj.addClass('active').removeClass('unactive');
+        })
+
+
+        //选择日期
+        $('#delivery-date-text').text(convertDateFormat(+new Date));
+
+        $('#delivery-date-input').change(function(){
+            var val=$(this).val();
+            $('#delivery-date-text').text(convertDateFormat(val));
+        })
+
+        function convertDateFormat(str){
+            if(typeof str=="string"){
+                 var arr=str.split("-");
+                arr[1]=arr[1].slice(0,1)=="0"? arr[1].slice(1):arr[1];
+                arr[2]=arr[2].slice(0,1)=="0"? arr[2].slice(1):arr[2];
+                return arr[1]+"月"+arr[2]+"日";
+            }else if(typeof str=="number"){
+                var date=new Date(str);
+                var month=date.getMonth()*1+1;
+                var day=date.getDate();
+                return month+"月"+day+"日";
+            }
+        }
+
+    </script>
+</div>
+
+
+<script src="js/main.js?p=Cart"></script>
+<script src="js/cart.js"></script>
+<script src="js/jquery.mobile.js"></script>
+</body>
+</html>

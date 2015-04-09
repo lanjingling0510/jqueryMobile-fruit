@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+    <title>用户中心</title>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.css">
+    <link rel="stylesheet" href="css/home.css"/>
+    <script src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body bgcolor=" #eeeeee" style="display:none">
+<!--page1-->
+<div data-role="page" id="Center">
+    <!--header-->
+    <div class="header" data-role="header" data-position="fixed" style="background: url('images/center-bg.png') repeat-x;
+background-size: 10px 100%;">
+        <h1 class="font-normal font-s16 font-fy-yahei">我的个人中心</h1>
+        <div class="header-center">
+            <img src="images/center-icon.png" height="100%" style="position:absolute;top:0;left:-42px;-webkit-transform:scale(1.1)" alt=""/>
+            <div class="header-center-bar">
+                <p class="color-green font-bold">你好，尊敬的用户</p>
+                <p class="color-green id">ID:2984775</p>
+            <span class="header-center-aside">
+                <a href="collect-fruit.html" data-transition="slidefade" class="font-s14"><img style="position:relative;top:-3px;left:3px" src="images/center-star.png" alt="" width="15"/> 收藏的水果 <span class="color-green">16</span></a><br>
+                <a href="collect-store.html" data-transition="slidefade" class="font-s14"><img style="position:relative;top:-3px;left:3px" src="images/center-house.png" alt="" width="15"/> 收藏的店铺 <span class="color-green">5</span></a>
+            </span>
+            </div>
+
+        </div>
+    </div>
+    <!--content-->
+    <div id="center-list"  data-role="content">
+        <ul>
+            <a href="myOrder.html" data-transition="slidefade"><li class="center-list-li"><img src="images/发文.png" alt="" width="45"/><span>全部订单</span></li></a>
+            <a href="myNav.html" data-transition="slidefade"><li class="center-list-li"><img src="images/导航.png" alt=""  width="45"/><span>地址管理</span></li></a>
+            <a href="myInfo.html" data-transition="slidefade"><li class="center-list-li"><img src="images/会议纪要.png" alt=""  width="45"/><span>个人资料</span></li></a>
+            <a href="myFeedback.html" data-transition="slidefade"><li class="center-list-li"><img src="images/修改资料.png" alt=""  width="45"/><span>意见反馈</span></li></a>
+            <a href="myComment.html" data-transition="slidefade"><li class="center-list-li"><img src="images/会议.png" alt=""  width="45"/><span>我的评价</span></li></a>
+        </ul>
+    </div>
+    <!--footer-->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" class="footer-bg">
+            <ul>
+                <li>
+                    <a href="home.html" data-direction="reverse" data-icon="fhome" data-iconpos="top">首页</a>
+                </li>
+                <li>
+                    <a href=" fruitQie.html" data-icon="ffruit" data-iconpos="top">鲜果切</a>
+                </li>
+                <li>
+                    <a href="store.html" data-transition="slidefade"  data-direction="reverse"  data-icon="fstore" data-iconpos="top">店铺</a>
+                </li>
+                <li>
+                    <a href="cart.html" data-transition="slidefade"  data-direction="reverse" data-icon="fcart"
+                       data-iconpos="top">购物车</a>
+                </li>
+                <li>
+                    <a href="" class="ui-btn-active ui-state-persist" data-icon="fmy" data-iconpos="top">用户中心</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+
+<script src="js/main.js?p=Center"></script>
+<script src="js/cart.js"></script>
+<script src="js/jquery.mobile.js"></script>
+</body>
+</html>

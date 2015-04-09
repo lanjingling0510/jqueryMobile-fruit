@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+    <title>鲜果切</title>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.css">
+    <link rel="stylesheet" href="css/home.css"/>
+    <script src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body bgcolor=" #eeeeee" style="display:none">
+<div data-role="page" id="fruitQie-2">
+    <style>
+        #cart-bar-fruitQie2 .fruit .color-red:after{
+            content:"+";
+            color:#000;
+        }
+        #cart-bar-fruitQie2 .fruit .color-red:last-child:after{
+            content:"";
+        }
+    </style>
+    <!--cartBar-->
+    <div id="cart-bar-fruitQie"  class="cartBar hidden">
+        <span class="cart-count">3</span>
+        <img class="cart-btn" src="images/arrow-u.png" width="13" alt="" style="margin-left: 14px;"/>
+        <img style="margin-top: -9px" src="images/cart2.png" width="33" alt=""/>
+        <span class="price">￥300.00</span>
+        <a href="cart.html" data-transition="slidefade" class="btn fr">去结算</a>
+        <span class="clearCart_btn btn fr">清空</span>
+    </div>
+    <!--cartBar2-->
+    <div id="cart-bar-fruitQie2"  class="cartBar2 hidden">
+        <span style="margin-left: 16px;">以选择</span>
+        <span class="fruit">
+
+        </span>
+        <span id="cart-setFruit-btn"  class="btn fr">生成套餐</span>
+    </div>
+    <!--cartWrap-->
+    <div id="cart-wrap-fruitQie" class="cartWrap hidden">
+        <div style="overflow-y:scroll;height:100%;width:100%">
+            <div class="text-ct">
+                <img src="images/line.png" width="46" alt=""/>
+            </div>
+            <ul>
+
+            </ul>
+            <p class="text-ct" style="margin-top:30px">
+                <img class="clearCart_btn" style="vertical-align: middle;" src="images/delete.png" width="20" alt=""/>
+                清空购物车
+            </p>
+        </div>
+
+    </div>
+    <!--header-->
+    <div class="header" data-role="header" data-position="fixed">
+
+        <!--部分一-->
+        <div class="fl text-ct" style="width:15%"><a  href="fruitQie.html" data-rel="back" id="menu1" data-role="button" data-iconpos="notext"
+                                                     style="margin-top: 9px;width:2em;height:2em;"
+                                                     data-corners="false" data-icon="fmenu"></a>
+        </div>
+        <div class="fl text-ct" style="width:62%"><input id="search" type="text" placeholder="搜索水果"/></div>
+        <div class="fl text-ct" style="width:23%"><a style="padding: 7px 13px;font-family:'黑体';font-size: 16px;" data-role="button">搜索</a></div>
+
+        <!--部分二-->
+        <p class="clearfix">
+            <a href="myNav.html" style="display:block;background: #e6e6e6;line-height:25px;font-size:12px;color:#000;height:25px;padding:2px 11px">
+                <img style="vertical-align: middle;" src="images/marker.png"  height="20" alt=""/>
+                <span style="margin-left:5px">武汉大学工商部大学生创新创业实践中心</span>
+                <span style="color:#000" class="fr">修改></span>
+            </a>
+
+        </p>
+        <!--部分三-->
+        <div class="nav1 font-s14 text-ct">
+            <div class="nav1-col1 fl">
+                <p>综合排序 <img src="images/arrow-d.png" width="10"></p>
+                <ul class="text-lt">
+                    <li>综合排序</li>
+                    <li>价格从低到高</li>
+                    <li>价格从高到低</li>
+                    <li>信用排序</li>
+                </ul>
+
+            </div>
+            <div class="nav1-col2 fl" style="width:28%;border-right:1px solid #E6E6E6">销量优先</div>
+            <div class="nav1-col3  fl">
+                <p> 产地 <img src="images/arrow-d.png" width="10"></p>
+                <ul class="text-lt">
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                    <hr style="margin: 0;border: 1px #dddddd dashed;"/>
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                </ul>
+            </div>
+            <div style="width:14%" class="fl">
+                <img id="menu4" src="images/menu2.png" alt="" width="14"/>
+            </div>
+        </div>
+    </div>
+
+    <div id="fruitQie-list-2" class="content-mg-bt">
+        <ul class="home-list  store-list clearfix"></ul>
+    </div>
+
+    <!--footer-->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" class="footer-bg">
+            <ul>
+                <li>
+                    <a href="home.html" data-transition="slidefade" data-direction="reverse" data-role="button" data-icon="fhome"
+                       data-iconpos="top">首页</a>
+                </li>
+                <li>
+                    <a href="" class="ui-btn-active ui-state-persist" data-role="button" data-icon="ffruit" data-iconpos="top">鲜果切</a>
+                </li>
+                <li>
+                    <a href="store.html" data-transition="slidefade"  data-role="button" data-icon="fstore" data-iconpos="top">店铺</a>
+                </li>
+                <li>
+                    <a href="cart.html" data-transition="slidefade" data-role="button" data-icon="fcart"
+                       data-iconpos="top">购物车</a>
+                </li>
+                <li>
+                    <a href="center.html" data-transition="slidefade" data-role="button" data-icon="fmy" data-iconpos="top">用户中心</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+
+        //点击生成套餐按钮
+        $("#cart-setFruit-btn").mousedown(function(){
+
+            //判断套餐数量是否大于3
+            if(GLOBAL.myApp.returnFruitQieSum()<3){
+                alert('最少选择3个水果。');
+                return;
+            }
+
+
+
+
+            GLOBAL.myApp.updateCartList2();
+            GLOBAL.cart_home.initCart();
+            GLOBAL.myApp.init("fruitQie-2");
+            $("#cart-bar-fruitQie2").hide();
+            $("#cart-bar-fruitQie").show();
+            $("#cart-bar-fruitQie2 .fruit").html('');
+
+        })
+    </script>
+</div>
+
+<script>
+    window.open('fruitQie.html','_self');
+</script>
+</body>
+</html>

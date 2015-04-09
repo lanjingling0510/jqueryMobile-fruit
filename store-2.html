@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+    <title>店铺</title>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.css">
+    <link rel="stylesheet" href="css/home.css"/>
+
+    <script src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body bgcolor=" #eeeeee" style="display:none">
+<!--page1-->
+<div data-role="page" id="Store2">
+    <link rel="stylesheet" href="css/cyt-slider.css"/>
+    <style>
+        .home-fruit-wrap{
+            position:fixed;
+            width:86%;
+            left:7%;
+            top:55px;
+            bottom:70px;
+            box-shadow: 1px 1px 8px 3px rgba(0,0,0,0.5);
+            z-index:1001;
+            background: #fff;
+        }
+        .fruit-deta-img1{
+            position: absolute;
+            right: 10px;
+            z-index: 99;
+            top: 10px;
+        }
+        .fruit-slider{
+            position: relative;
+            background: #fff;
+            width: 100%;
+        }
+        .fruit-slider-imgs{
+            overflow: hidden;
+        }
+        .fruit-data-text{
+            background: #fff;
+            border-bottom: 1px solid #C2C5BA;
+        }
+        .fruit-data-text .num {
+            padding-top: 8px;
+            margin-top: -35px;
+        }
+        .num img {
+            vertical-align: middle;
+            padding: 0 3px;
+        }
+        .fruit-deta-imgprec{
+            position: relative;
+            background: #fff;
+            padding-top: 50px;
+            border-bottom: 1px solid #C2C5BA;
+        }
+        .fruit-deta-imgprec-img1{
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: 99;
+            width: 25%;
+        }
+        .fruit-deta-com{
+            position: relative;}
+        .fruit-deta-com-img1{
+            position: absolute;
+            top:0;
+            left: 0;
+            z-index: 99;
+            width: 25%;
+        }
+        .fruit-deta-com-list li{
+            border-bottom: 1px solid #C2C5BA;
+            background: #fff;
+        }
+        .fruit-deta-com-list .fr{
+            padding-top: 8px;
+            margin-top: -35px;
+        }
+        .fruit-deta-com-list .text-p{
+            padding: 20px 12px;
+        }
+        .fruit-slider-point span{
+            position: absolute;
+            bottom: 20px;
+            border-radius: 7px;
+            padding: 5px;
+            background: #fff;
+            display: inline-block;
+        }
+    </style>
+    <!--cartBar-->
+    <div id="cart-bar-store"  class="cartBar">
+        <span class="cart-count">3</span>
+        <img class="cart-btn" src="images/arrow-u.png" width="13" alt="" style="margin-left: 14px;"/>
+        <img style="margin-top: -9px" src="images/cart2.png" width="33" alt=""/>
+        <span class="price">￥300.00</span>
+        <a href="cart.html" data-transition="slidefade" class="btn fr">去结算</a>
+        <span class="clearCart_btn btn fr">清空</span>
+    </div>
+    <!--fruit-->
+    <!--todo home-fruit-wrap-->
+    <div class="home-fruit-wrap hidden">
+        <span class="fruit-deta-img1 fr"><img class="home-close-btn" src="images/close.png" alt=""></span><!-- 右上角x -->
+        <div style="overflow-y:scroll;height:100%;width:100%">
+            <div class="fruit-deta">
+                <!--todo slider-->
+                <div class="fruit-slider2" data-role="cyt-slider">
+                </div>
+
+                <div class="fruit-data-text">
+                    <p class="name text-p font-s14">现货8斤 不知火丑甘现货新鲜水果丑橙子 丑橘蜜桔子</p>
+                    <p class="text-p font-s14">
+                        <span class="price color-red" style="margin-right:1em">￥100/盒</span><span  class="store color-red">武大店</span><br>
+                        <span style="opacity: 0.8;margin-right:1em">月销售57件</span><span style="opacity: 0.8;">产地/四川资阳</span>
+                    </p>
+                </div>
+
+                <div class="fruit-deta-imgprec">
+                    <img  class="fruit-deta-imgprec-img1"src="images/imgprec1.png" alt="">
+                    <img src="images/detaImg.png" alt="" width="100%">
+                </div>
+
+                <div class="fruit-deta-com"><!-- 客户评论  -->
+                    <img  class="fruit-deta-com-img1"src="images/cuscom.png" alt="">
+                    <ul class="fruit-deta-com-list">
+                        <li style="padding-top: 30px;">
+                            <p class="text-p">
+                                <span>太小啦</span><br>
+                                <span>03.12</span><br>
+                                <span class="fr">t**M（匿名）</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-p">
+                                <span>太小啦</span><br>
+                                <span>03.12</span><br>
+                                <span class="fr">t**M（匿名）</span>
+                            </p>
+                        </li>
+                        <li>
+                            <p class="text-p">
+                                <span>太小啦</span><br>
+                                <span>03.12</span><br>
+                                <span class="fr">t**M（匿名）</span>
+                            </p>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--cartWrap-->
+    <div id="cart-wrap-store" class="cartWrap hidden">
+        <div style="overflow-y:scroll;height:100%;width:100%">
+            <div class="text-ct">
+                <img src="images/line.png" width="46" alt=""/>
+            </div>
+            <ul>
+
+            </ul>
+            <p class="text-ct" style="margin-top:30px">
+                <img class="clearCart_btn" style="vertical-align: middle;" src="images/delete.png" width="20" alt=""/>
+                清空购物车
+            </p>
+        </div>
+
+    </div>
+    <!--header-->
+    <div class="header" data-role="header" data-position="fixed">
+        <!--部分一-->
+        <div class="fl text-ct" style="width:15%"><a href="store.html" data-rel="back" id="menu1" data-role="button" data-iconpos="notext"
+                                                     style="margin-top: 9px;width:2em;height:2em;"
+                                                     data-corners="false" data-icon="fmenu"></a>
+        </div>
+        <div class="fl text-ct" style="width:62%"><input id="search" type="text" placeholder="搜索水果"/></div>
+        <div class="fl text-ct" style="width:23%"><a style="padding: 7px 13px;font-family:'黑体';font-size: 16px;" data-role="button">搜索</a></div>
+
+        <!--部分二-->
+        <p class="clearfix">
+            <a href="myNav.html" style="display:block;background: #e6e6e6;line-height:25px;font-size:12px;color:#000;height:25px;padding:2px 11px">
+                <img style="vertical-align: middle;" src="images/marker.png"  height="20" alt=""/>
+                <span style="margin-left:5px">武汉大学工商部大学生创新创业实践中心</span>
+                <span style="color:#000" class="fr">修改></span>
+            </a>
+
+        </p>
+        <!--部分三-->
+        <div class="nav1 font-s14 text-ct">
+            <div class="nav1-col1 fl">
+                <p>综合排序 <img src="images/arrow-d.png" width="10"></p>
+                <ul class="text-lt">
+                    <li>综合排序</li>
+                    <li>价格从低到高</li>
+                    <li>价格从高到低</li>
+                    <li>信用排序</li>
+                </ul>
+
+            </div>
+            <div class="nav1-col2 fl" style="width:28%;border-right:1px solid #E6E6E6">销量优先</div>
+            <div class="nav1-col3  fl">
+                <p> 产地 <img src="images/arrow-d.png" width="10"></p>
+                <ul class="text-lt">
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                    <hr style="margin: 0;border: 1px #dddddd dashed;"/>
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                    <li><span>北京</span><span>上海</span><span>广州</span><span>深圳</span><span>杭州</span></li>
+                </ul>
+            </div>
+            <div style="width:14%" class="fl">
+                <img id="menu3" src="images/menu2.png" alt="" width="14"/>
+            </div>
+        </div>
+    </div>
+    <!--content-->
+    <div id="store-list2" class="content-mg-bt">
+        <ul class="home-list clearfix">
+        </ul>
+    </div>
+    <!--footer-->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" class="footer-bg">
+            <ul>
+                <li>
+                    <a href="home.html" data-role="button" data-icon="fhome" data-iconpos="top">首页</a>
+                </li>
+                <li>
+                    <a href="fruitQie.html" data-transition="slidefade"   data-icon="ffruit" data-iconpos="top">鲜果切</a>
+                </li>
+                <li>
+                    <a class="ui-btn-active ui-state-persist" href="" data-transition="slidefade"  data-icon="fstore" data-iconpos="top">店铺</a>
+                </li>
+                <li>
+                    <a href="cart.html" data-transition="slidefade" data-icon="fcart"
+                       data-iconpos="top">购物车</a>
+                </li>
+                <li>
+                    <a href="center.html" data-transition="slidefade" data-icon="fmy" data-iconpos="top">用户中心</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/cyt-slider.js"></script>
+    <script>
+        $(function () {
+            //转换列表大小事件
+            $("#menu3").mousedown(function () {
+                if (!$(this).data('status')) {
+                    $("#store-list2 .home-list li").removeClass('width-small').addClass('width-big');
+                    $(this).data('status', true)
+                    $(this).attr('src', 'images/menu3.png');
+
+                } else {
+                    $("#store-list2 .home-list li").removeClass('width-big').addClass('width-small');
+                    $(this).data('status', false)
+                    $(this).attr('src', 'images/menu2.png');
+                }
+            })
+            //点击关闭close按钮事件
+            $(".home-close-btn").mousedown(function(){
+                $(".home-fruit-wrap").fadeOut(300);
+            })
+            //详细界面的轮播器
+            $(".fruit-slider2").cyt_slider({
+                height:250,
+                urls:["images/01.jpg","images/02.jpg","images/03.jpg"]
+            })
+
+
+        })
+
+    </script>
+</div>
+
+<script>
+    window.open('store.html','_self');
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+    <title></title>
+    <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+    <link rel="stylesheet" href="css/my.css">
+    <link rel="stylesheet" href="css/jquery.mobile.structure-1.4.2.css">
+    <link rel="stylesheet" href="css/home.css"/>
+    <script src="js/jquery-1.11.0.min.js"></script>
+</head>
+<body bgcolor=" #eeeeee" style="display:none">
+<!--page1-->
+<div data-role="page" id="Home" style="background:#fff">
+    <!--header-->
+    <div class="header" data-role="header" data-position="fixed"
+         style="background:url('images/center-bg.png') no-repeat;background-size:100% 100%">
+        <a href="center.html" data-rel="back" data-transition="slidefade" data-icon="fback" data-iconpos="notext"
+           style="background-color:transparent"></a>
+
+        <h1 class="font-normal font-s16 font-fy-yahei">评价水果</h1>
+    </div>
+    <!--content-->
+    <div id="center-list">
+        <ul class="home-list">
+            <li class="width-big" style="border:none">
+                <div class="fruit-list-l" style="width:28%">
+                    <img src="images/fruit-1.png" alt="" width="100%"/>
+                </div>
+                <div class="fruit-list-r" style="width:68%">
+                    <p class="text-p">现货8斤 不知火丑柑现货新鲜水
+                        果丑橙子 丑橘蜜桔子</p>
+
+                    <p class="text-p">
+                          <span class="price-name">
+                            <cite class="price color-red">￥100/盒</cite>
+                            <cite class="name color-red">汉街店</cite>
+                          </span>
+                    </p>
+                </div>
+
+                <div class="clearfix comment-wrap text-title">
+                    <span class="fl" style="opacity:0.7">
+                        <cite>描述相符</cite>
+                    </span>
+                    <span class="fr-mgr">
+                        <cite>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                        </cite>
+                    </span>
+                </div>
+
+                <div class="fruit-comment-textBox">
+                    <textarea id="textarea-comment" placeholder="亲，你想写点什么？" class="fruit-comment-textBox-input"
+                              style="width:82%;display:inline-block;vertical-align:middle;"> </textarea><span class="fruit-comment-textBox-img"><img src="images/camera.png" alt="" height="51" width="100%"></span>
+                </div>
+
+            </li>
+            <p class="clearfix" style="padding-bottom:15px;background:rgb(238,238,238)"></p>
+            <li class="width-big" style="border:none">
+                <p class="text-title">给店铺评分</p>
+
+                <div class="clearfix comment-wrap text-title">
+                    <span class="fl" style="opacity:0.7">
+                        <cite>服务态度</cite>
+                    </span>
+                    <span class="fr-mgr">
+                        <cite>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                        </cite>
+                    </span>
+                </div>
+                <div class="clearfix comment-wrap text-title">
+                    <span class="fl" style="opacity:0.7">
+                        <cite>发货速度</cite>
+                    </span>
+                    <span class="fr-mgr">
+                        <cite>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                        </cite>
+                    </span>
+                </div>
+                <div class="clearfix comment-wrap text-title">
+                    <span class="fl" style="opacity:0.7">
+                        <cite>物流服务</cite>
+                    </span>
+                    <span class="fr-mgr">
+                        <cite>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                            <img class="star" src="images/star2.png" width="20" alt=""/>
+                        </cite>
+                    </span>
+                </div>
+                <div class="text-ct"><a href="#" class="btn-small">发表评价</a></div>
+
+            </li>
+
+        </ul>
+    </div>
+    <!--footer-->
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar" class="footer-bg">
+            <ul>
+                <li>
+                    <a href="home.html" data-direction="reverse" data-icon="fhome" data-iconpos="top">首页</a>
+                </li>
+                <li>
+                    <a href="" data-icon="ffruit" data-iconpos="top">鲜果切</a>
+                </li>
+                <li>
+                    <a href="store.html" data-transition="slidefade" data-direction="reverse"
+                       data-icon="fstore" data-iconpos="top">店铺</a>
+                </li>
+                <li>
+                    <a href="cart.html" data-transition="slidefade" data-direction="reverse"
+                       data-icon="fcart"
+                       data-iconpos="top">购物车</a>
+                </li>
+                <li>
+                    <a href="" class="ui-btn-active ui-state-persist" data-icon="fmy"
+                       data-iconpos="top">用户中心</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $("#center-list .star").mousedown(function(){
+            var star=$(this);
+            star.siblings('img').attr('src','images/star2.png');
+            star.prevAll('img').andSelf().attr('src','images/star1.png');
+        })
+    </script>
+</div>
+
+
+<script src="js/main.js?p=Center"></script>
+<script src="js/cart.js"></script>
+<script src="js/jquery.mobile.js"></script>
+</body>
+</html>
