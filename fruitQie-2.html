@@ -104,7 +104,7 @@
     <script>
 
         //点击生成套餐按钮
-        $("#cart-setFruit-btn").mousedown(function(){
+        $("#cart-setFruit-btn").on('touchstart',function(){
 
             //判断套餐数量是否大于3
             if(GLOBAL.myApp.returnFruitQieSum()<3){

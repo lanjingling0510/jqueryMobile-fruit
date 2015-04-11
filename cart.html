@@ -23,12 +23,12 @@
             background: rgb(236, 237, 241);
             padding:8px 0;
         }
-        .cart-form-section1>li span{
+        .cart-form-section1>li>span{
             float:left;
             margin-left:7px;
             height:30px;
         }
-        .cart-form-section1>li span:first-child{
+        .cart-form-section1>li>span:first-child{
             line-height: 27px;
         }
         .cart-input-icon {
@@ -55,14 +55,108 @@
         #delivery-date-wrap .ui-input-text {
             margin: 0;
         }
+        .cart-time-btn{
+            height:25px;
+            padding-right:17px;
+            background: url('images/time-bg2.png') no-repeat right;
+            background-size:17px 25px;
+            display: inline-block;
+            font-size: 14px;
+            line-height: 25px;
+            text-align: center;
+            border: 1px solid rgb(92,92,92);
+            border-radius: 5px;
+        }
+        [class|=cart-time].active{
+            border: 1px solid red;
+            background: url('images/time-bg1.png') no-repeat right;
+            background-size:17px 25px;
+        }
+        /*配送时间选择器样式*/
+        .cart-time-wrap{
+            position:fixed;
+            left:0;
+            bottom:35px;
+            width:100%;
+            z-index:1003;
+            background: -webkit-linear-gradient(top, rgb(219,209,209) 54%, rgb(198,205,214) 85%);
+            background: linear-gradient(top,rgb(219,209,209) 54%,rgb(198,205,214) 85%);
+            border-top: 2px solid rgb(215,212,212);
+            height: 244px;
+        }
+        .cart-time-wrap>p{
+            background: rgb(242, 241, 240);
+            line-height:31px;
+
+        }
+        .cart-time-wrap [class|=btn]{
+            font:bold 17px arial;
+            color:rgb(215,212,212);
+            display:inline-block;
+            margin-right:24px;
+        }
+        .cart-time-wrap [class|=btn].active{
+            color:red;
+        }
+        [class*=cart-time-content]{
+            -webkit-transform-style:preserve-3d;
+            transform-style:preserve-3d;
+            -webkit-perspective:800px;
+            perspective:800px;
+            position:relative;
+            -webkit-transform:rotateX(0deg);
+            height:33px;
+        }
+        [class*=cart-time-content]>li{
+            font-size: 26px;
+            position:absolute;
+            top: 0;
+            left:0;
+            width: 100%;
+        }
+
     </style>
+
+    <!--配送时间选择器-->
+    <div class="cart-time-wrap wrap1 hidden">
+        <p class="text-p">
+            <a class="btn-prev">〈</a>
+            <a class="btn-next active">〉</a>
+            <span class="fr color-red font-s14 finish-btn">完成</span>
+        </p>
+        <div style="padding-top:70px; padding-bottom: 30px;">
+            <div style="border-bottom:1px solid #bfbab9;border-top:1px solid #bfbab9;">
+                <ul class="cart-time-content1 text-ct">
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cart-time-wrap wrap2 hidden">
+        <p class="text-p">
+            <a class="btn-prev active">〈</a>
+            <a class="btn-next">〉</a>
+            <span class="fr color-red font-s14 finish-btn">完成</span>
+        </p>
+        <div style="padding-top:70px; padding-bottom: 30px;">
+            <div style="border-bottom:1px solid #bfbab9;border-top:1px solid #bfbab9;">
+                <ul class="cart-time-content2 text-ct">
+
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!--购物车列表-->
     <div id="cart-wrap-cart" class="cart-list">
 
     </div>
 
 
     <!--表单-->
-    <!--todo form-->
     <div class="cart-form-wrap clearfix">
              <ul class="cart-form-section1">
                  <li class="clearfix">
@@ -78,7 +172,8 @@
                  </li>
                  <li class="clearfix">
                      <span>配送时间：</span>
-
+                     <span><cite id="cart-time-day-btn" class="cart-time-btn" style="width:45px;">今天</cite></span>
+                     <span><cite id="cart-time-hour-btn" class="cart-time-btn" style="width:89px">1小时送达</cite></span>
                  </li>
                  <li class="clearfix">
                      <span >支付方式：</span>
@@ -166,35 +261,37 @@
         </div>
     </div>
     <!--todo script-->
+    <script src="js/cart-timepicker.js" defer></script>
     <script>
-        $('.cart-input-icon').on('click', function () {
+        //选择图标
+        $('.cart-input-icon').on('touchstart', function () {
             var obj = $(this);
-            obj.siblings(".active").removeClass('active').addClass('unactive');
+            obj.parent('span').siblings('span').children(".active").removeClass('active').addClass('unactive');
             obj.addClass('active').removeClass('unactive');
         })
 
-
-        //选择日期
-        $('#delivery-date-text').text(convertDateFormat(+new Date));
-
-        $('#delivery-date-input').change(function(){
-            var val=$(this).val();
-            $('#delivery-date-text').text(convertDateFormat(val));
+        //点击日期选择器按钮
+        $(document).on('touchstart',"#cart-time-day-btn,.wrap2 .btn-prev",function(event){
+            event.stopPropagation();
+            $(".cart-time-btn.active").removeClass('active');
+            $("#cart-time-day-btn").addClass('active');
+            $('.cart-time-wrap.wrap2').hide();
+            $('.cart-time-wrap.wrap1').slideDown(300);
+            GLOBAL.time.controller.setParent($(".cart-time-content1"));
         })
-
-        function convertDateFormat(str){
-            if(typeof str=="string"){
-                 var arr=str.split("-");
-                arr[1]=arr[1].slice(0,1)=="0"? arr[1].slice(1):arr[1];
-                arr[2]=arr[2].slice(0,1)=="0"? arr[2].slice(1):arr[2];
-                return arr[1]+"月"+arr[2]+"日";
-            }else if(typeof str=="number"){
-                var date=new Date(str);
-                var month=date.getMonth()*1+1;
-                var day=date.getDate();
-                return month+"月"+day+"日";
-            }
-        }
+        $(document).on('touchstart',"#cart-time-hour-btn,.wrap1 .btn-next",function(event){
+            event.stopPropagation();
+            $(".cart-time-btn.active").removeClass('active');
+            $("#cart-time-hour-btn").addClass('active');
+            $('.cart-time-wrap.wrap1').hide();
+            $('.cart-time-wrap.wrap2').slideDown(300);
+            GLOBAL.time.controller.setParent($(".cart-time-content2"));
+        })
+        $(document).on('touchstart','.cart-time-wrap .finish-btn',function(event){
+            event.stopPropagation();
+            $(this).closest('.cart-time-wrap').slideUp(300);
+            $(".cart-time-btn.active").removeClass('active');
+        })
 
     </script>
 </div>

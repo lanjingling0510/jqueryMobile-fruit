@@ -1,6 +1,6 @@
 
     var GLOBAL={
-
+        start:0,//解决第一次加载应用时，pagebeforecreate与pagechange的重复问题
         addressList:[
             "武汉大学工商部大学生创新创业实践中心1",
             "武汉大学工商部大学生创新创业实践中心2",
@@ -57,7 +57,6 @@
                     _initStore_2();
                     GLOBAL.cart_home.initCart();
                     break;
-
             }
 
         }
@@ -343,7 +342,7 @@
             $("body").fadeIn();
         })
         //点击header-nav1的下拉选择框
-        $(document).on('mousedown','[class|=nav1]>p',function(){
+        $(document).on('touchstart','[class|=nav1]>p',function(){
             var obj=$(this);
             if(!obj.data('isDown')){
 
@@ -360,7 +359,7 @@
             }
         })
 
-        $(document).on('mousedown','[class|=nav1] span',function(){
+        $(document).on('touchstart','[class|=nav1] span',function(){
             var obj=$(this);
             var parent=obj.parents('ul');
             var p=parent.prev('p');
@@ -369,7 +368,7 @@
             p.removeClass('active');
             p.html(obj.text()+' <img src="images/arrow-d.png" width="10">');
         })
-        $(document).on('mousedown','.nav1-col2',function(){
+        $(document).on('touchstart','.nav1-col2',function(){
             var obj=$(this);
             if(!obj.data('isDown')){
                 obj.addClass('active');
@@ -381,7 +380,7 @@
         })
 
         //点击首页果实的加减号
-        $(document).on('mousedown','#fruit-list li,#store-list2 li', function (event) {
+        $(document).on('touchstart','#fruit-list li,#store-list2 li', function (event) {
             var obj = $(event.target);
             var li = obj.closest('li');
             var id=li.data('id');
@@ -416,7 +415,7 @@
             }
         })
         //点击店铺，首页和鲜果切购物车里的加减号
-        $(document).on('mousedown','.cartWrap', function (event) {
+        $(document).on('touchstart','.cartWrap', function (event) {
             var obj = $(event.target);
             var li = obj.closest('li');
             var id=li.data('id');
@@ -452,7 +451,7 @@
             }
         })
         //点击鲜果切页面水果的加减号
-        $(document).on('mousedown',"#fruitQie-list-2 .fruit-list li",function(event){
+        $(document).on('touchstart',"#fruitQie-list-2 .fruit-list li",function(event){
             var obj = $(event.target);
             var li = obj.closest('li');
             var id=li.data('id');
@@ -471,7 +470,7 @@
 
         })
         //点击购物车页面的加减号
-        $(document).on('mousedown','#cart-wrap-cart',function(event){
+        $(document).on('touchstart','#cart-wrap-cart',function(event){
             var obj = $(event.target);
             var li = obj.closest('li');
             var id=li.data('id');
@@ -494,7 +493,7 @@
             }
         })
         //点击收藏按钮
-        $(document).on('mousedown','.store_collect_btn',function(event){
+        $(document).on('touchstart','.store_collect_btn',function(event){
             event.stopPropagation();
             var obj=$(this);
             if(!obj.data('isCollect')){
@@ -507,13 +506,13 @@
             return false;
         })
         //点击鲜果切商店
-        $(document).on('mousedown','#fruitQie-list .store-list li',function(event){
+        $(document).on('touchstart','#fruitQie-list .store-list li',function(event){
                 var li=$(this);
                 GLOBAL.fruitQieList_now=GLOBAL.fruitQieTypeObj[li.data('store')];
                 $.mobile.changePage( "fruitQie-2.html", { transition: "fade"});
         })
         //点击店铺的商店
-        $(document).on('mousedown','#store-list .store-list li',function(){
+        $(document).on('touchstart','#store-list .store-list li',function(){
             var li=$(this);
             GLOBAL.fruitStoreList_now=GLOBAL.fruitStoreTypeObj[li.data('store')];
             $.mobile.changePage( "store-2.html", { transition: "fade"});
@@ -521,7 +520,7 @@
 
 
         //点击切换购物车
-        $(document).on('mousedown','.cartBar',function(event){
+        $(document).on('touchstart','.cartBar',function(event){
             var obj=$(this);
             if(event.target.className.indexOf("clearCart_btn")>-1){
                 //点击清空按钮
@@ -566,7 +565,12 @@
         })
         //
         $(document).on('pagechange',function(){
-            //更新第一次打开的页面
+            //避免应用一开始就执行pagechange
+            if(GLOBAL.start==0){
+                GLOBAL.start++;
+                return;
+            }
+            //更新第一次打开的页面通过pagechange
             if($("[data-role=page]").length==1){
                 console.log('pagechange...');
                 GLOBAL.myApp.init(GLOBAL.myApp.firstPage);

@@ -118,7 +118,7 @@ background-size: 12px 192px;">
         </div>
     </div>
     <script>
-        $("#myComment-list .star").mousedown(function(){
+        $("#myComment-list .star").on('touchstart',function(){
             var star=$(this);
             star.siblings('img').attr('src','images/star2.png');
             star.prevAll('img').andSelf().attr('src','images/star1.png');

@@ -243,7 +243,7 @@
     <script>
         $(function () {
             //点击关闭close按钮事件
-            $(".home-close-btn").mousedown(function(){
+            $(".home-close-btn").on('touchstart',function(){
                 $(".home-fruit-wrap").fadeOut(300);
             })
             //详细界面的轮播器
