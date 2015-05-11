@@ -78,7 +78,7 @@
         function addFruitToHome(index,list,parent) {
             var tpl = '<li data-id="'+list[index].id+'">\
              <div class="fruit-list-l">\
-                 <img src="' + list[index].image + '" alt="" width="100%"/>\
+                 <img class="fruit-img" src="' + list[index].image + '" alt="" width="100%"/>\
              </div>\
              <div  class="fruit-list-r">\
                 <p class="title text-p">' + list[index].name + '</p>\
@@ -101,7 +101,7 @@
         function addFruitToStore2(index,list,parent){
             var tpl = '<li data-id="'+list[index].id+'">\
              <div class="fruit-list-l">\
-                 <img src="' + list[index].image + '" alt="" width="100%"/>\
+                 <img class="fruit-img" src="' + list[index].image + '" alt="" width="100%"/>\
              </div>\
              <div  class="fruit-list-r">\
                 <p class="title text-p">' + list[index].name + '</p>\
@@ -128,7 +128,7 @@
             for(var i=0;i<GLOBAL.fruitQieList_now.length;i++){
                  tpl = '<li data-id="'+GLOBAL.fruitQieList_now[i].id+'">\
              <div class="fruit-list-l">\
-                 <img src="' + GLOBAL.fruitQieList_now[i].image + '" alt="" width="100%"/>\
+                 <img class="fruit-img" src="' + GLOBAL.fruitQieList_now[i].image + '" alt="" width="100%"/>\
              </div>\
              <div  class="fruit-list-r">\
                 <p class="fruit-list-pd font-fy-heiti font-s14">\
@@ -293,6 +293,8 @@
     })();
     //todo global.event
     GLOBAL.event=(function(){
+
+
         //应用初始化事件
         $(document).on('mobileinit', function () {
             console.log('mobileinit...');
@@ -359,7 +361,7 @@
             }
         })
 
-        $(document).on('touchstart','[class|=nav1] span',function(){
+        $(document).on('click','[class|=nav1] span',function(){
             var obj=$(this);
             var parent=obj.parents('ul');
             var p=parent.prev('p');
@@ -380,7 +382,7 @@
         })
 
         //点击首页果实的加减号
-        $(document).on('touchstart','#fruit-list li,#store-list2 li', function (event) {
+        $(document).on('click','#fruit-list li,#store-list2 li', function (event) {
             var obj = $(event.target);
             var li = obj.closest('li');
             var id=li.data('id');
@@ -409,8 +411,7 @@
                 }
                 GLOBAL.myApp.updateHome(index);
                 GLOBAL.cart_home.calculateMoney();
-            }else {
-                if(this.tagName.toLocaleLowerCase()=='li')
+            }else if(event.target.className=="fruit-img"){
                 $('.home-fruit-wrap').fadeIn(500);
             }
         })
@@ -506,13 +507,13 @@
             return false;
         })
         //点击鲜果切商店
-        $(document).on('touchstart','#fruitQie-list .store-list li',function(event){
+        $(document).on('click','#fruitQie-list .store-list li',function(event){
                 var li=$(this);
                 GLOBAL.fruitQieList_now=GLOBAL.fruitQieTypeObj[li.data('store')];
                 $.mobile.changePage( "fruitQie-2.html", { transition: "fade"});
         })
         //点击店铺的商店
-        $(document).on('touchstart','#store-list .store-list li',function(){
+        $(document).on('click','#store-list .store-list li',function(){
             var li=$(this);
             GLOBAL.fruitStoreList_now=GLOBAL.fruitStoreTypeObj[li.data('store')];
             $.mobile.changePage( "store-2.html", { transition: "fade"});
@@ -578,6 +579,9 @@
             if(GLOBAL.myApp.firstPage=="Home"){
                 GLOBAL.cart_home.hideCart();
                 $('#fruit-list').show();
+            }else if(GLOBAL.myApp.firstPage=="Cart"){
+                $('.cart-input-icon.active').removeClass('active').addClass('unactive');
+                $('.cart-input-icon:first').removeClass('unactive').addClass('active');
             }
 
         })

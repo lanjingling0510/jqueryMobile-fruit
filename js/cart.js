@@ -196,6 +196,7 @@ GLOBAL.myApp.CartMaker.Cart=function(){
         for(var i=0;i<GLOBAL.cartList.length;i++){
             value+=GLOBAL.cartList[i].count;
         }
+
         $("#price-view").text(value +".00元");
     }
 }

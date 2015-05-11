@@ -110,7 +110,7 @@
             height:43.5px;
             position:relative;
         }
-        .sideBar li.color-red:after{
+        .sideBar li:nth-child(2):after{
             content: "4";
             position: absolute;
             text-align: center;
@@ -279,7 +279,11 @@
                 urls:["images/01.jpg","images/02.jpg","images/03.jpg"]
             })
 
-
+            //点击sideBar选择分类
+            $(".sideBar li").on('touchstart',function(){
+                $(".sideBar li.color-red").removeClass('color-red')
+                $(this).addClass('color-red');
+            })
         })
 
     </script>

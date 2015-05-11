@@ -93,7 +93,7 @@
             font:bold 17px arial;
             color:rgb(215,212,212);
             display:inline-block;
-            margin-right:24px;
+            padding-right:24px;
         }
         .cart-time-wrap [class|=btn].active{
             color:red;
@@ -268,6 +268,11 @@
             var obj = $(this);
             obj.parent('span').siblings('span').children(".active").removeClass('active').addClass('unactive');
             obj.addClass('active').removeClass('unactive');
+            var value = 0;
+            for(var i=0;i<GLOBAL.cartList.length;i++){
+                value+=GLOBAL.cartList[i].count;
+            }
+            $("#price-view").text(value+parseInt(obj.text())+".00元");
         })
 
         //点击日期选择器按钮
@@ -291,6 +296,9 @@
             event.stopPropagation();
             $(this).closest('.cart-time-wrap').slideUp(300);
             $(".cart-time-btn.active").removeClass('active');
+        })
+        $(document).on('touchmove touchend',".wrap2 .btn-prev,.wrap1 .btn-next,.cart-time-wrap .finish-btn",function(event){
+            event.stopPropagation();
         })
 
     </script>
